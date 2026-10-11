@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ExploraEC - Sesion 8 (Brave)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/lib/main.dart",
+            "deviceId": "web-server",
+            "flutterMode": "debug",
+            "toolArgs": [
+                "--web-port",
+                "8186",
+                "--dart-define=API_BASE_URL=http://localhost:8000"
+            ]
+        }
+    ]
+}

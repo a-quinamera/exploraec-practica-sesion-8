@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "dart.flutterShowWebServerDevice": "always"
+  },
+  "folders": [
+    {
+      "path": "exploraec-curso/exploraec"
+    }
+  ]
+}
