@@ -1,0 +1,6 @@
+{
+  "cuentaPruebaSinGastos": true,
+  "gastoEliminadoEstado": 404,
+  "apiDirecta": "http://localhost:8000",
+  "fecha": "2026-10-18"
+}

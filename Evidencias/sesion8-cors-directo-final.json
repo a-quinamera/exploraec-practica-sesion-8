@@ -1,0 +1,22 @@
+[
+  {
+    "metodo": "PATCH",
+    "estado": 200,
+    "origen": [
+      "http://localhost:8186"
+    ],
+    "permitidos": [
+      "GET, POST, PATCH, DELETE, PUT, OPTIONS"
+    ]
+  },
+  {
+    "metodo": "DELETE",
+    "estado": 200,
+    "origen": [
+      "http://localhost:8186"
+    ],
+    "permitidos": [
+      "GET, POST, PATCH, DELETE, PUT, OPTIONS"
+    ]
+  }
+]

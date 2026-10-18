@@ -60,6 +60,6 @@ flutter run -d web-server --web-port 8186 --dart-define=API_BASE_URL=http://loca
 
 Abrir http://localhost:8186/ en Brave. Para probar la opción «Invalidar token (solo práctica)» debe utilizarse una ejecución debug; esa opción no aparece en release.
 
-El backend fuente permite CORS para localhost:8186 y GET/POST/PATCH/DELETE/PUT/OPTIONS. Si una imagen antigua solo permite GET y POST, es necesario reconstruirla con el comando anterior. El informe detalla el intermediario temporal usado durante esta comprobación porque el entorno no tenía acceso al canal Docker para reconstruir la imagen.
+El backend fuente permite CORS para localhost:8186 y GET/POST/PATCH/DELETE/PUT/OPTIONS. Si una imagen antigua solo permite GET y POST, es necesario reconstruirla con el comando anterior. El informe conserva el historial del intermediario temporal usado inicialmente. El 18 de octubre se reconstruyó la imagen y se verificaron PATCH y DELETE directamente desde Brave al puerto 8000; esa limitación queda resuelta.
 
 Fuentes: diapositivas `sesion-08.pdf`, instructivo de la práctica 8 y [video de Moodle](https://cursos.cedia.org.ec/mod/page/view.php?id=49592). No se realizó entrega ni se marcaron recursos como completados en Moodle.

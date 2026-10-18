@@ -52,4 +52,14 @@ El 18 de octubre de 2026 aprobaron las 15 pruebas oficiales y 17 comprobaciones 
 
 El backend fuente ya permite CORS para GET, POST, PATCH, DELETE, PUT y OPTIONS desde localhost:8186. Si el contenedor instalado devuelve solo GET/POST en un preflight, reconstruirlo desde la carpeta del backend con `docker compose up --build -d`, sin eliminar los volúmenes.
 
-Durante esta verificación el entorno no tenía acceso al canal Docker para reconstruirlo. Se iniciaron los contenedores por Docker Desktop y se utilizó un intermediario local temporal (8002 → API real 8000) para comprobar los flujos en Brave. El informe distingue esta ejecución de la ruta directa habitual; el intermediario no forma parte de la aplicación ni es necesario con una imagen actualizada.
+En la verificación inicial el entorno no tenía acceso al canal Docker para reconstruirlo. Se iniciaron los contenedores por Docker Desktop y se utilizó un intermediario local temporal (8002 → API real 8000) para comprobar los flujos en Brave. El informe distingue esta ejecución de la ruta directa habitual; el intermediario no forma parte de la aplicación ni es necesario con una imagen actualizada.
+
+## Ejecución directa completada
+
+El 18 de octubre de 2026 se reconstruyó la imagen Docker y quedó resuelta la limitación de CORS. Se verificaron **PATCH y DELETE desde Brave directamente a localhost:8000**, sin intermediario: el gasto de prueba pasó de 2.50 a 3.50 y después se eliminó con confirmación. La API confirmó la edición y la eliminación; la lista quedó vacía.
+
+- [Edición directa comprobada](Evidencias/sesion8-10-patch-directo.png).
+- [Eliminación directa comprobada](Evidencias/sesion8-12-delete-directo.png).
+- [Resultado CORS de la imagen reconstruida](Evidencias/sesion8-cors-directo-final.json).
+
+El informe mantiene la historia de la comprobación inicial y documenta el cierre del pendiente. No se borraron los volúmenes ni los gastos anteriores del curso. No se requiere el intermediario temporal para ejecutar esta práctica con la imagen actualizada.

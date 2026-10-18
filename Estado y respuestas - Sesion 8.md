@@ -1,6 +1,6 @@
 # Estado y verificación de la práctica 8
 
-Actualizado: 18 de octubre de 2026. Se conservó el proyecto existente y se comparó con el video, las diapositivas y el instructivo. El código fuente de lib/ y test/ coincide con el repositorio público ya publicado; no fue necesario cambiarlo para completar las funciones obligatorias.
+Actualizado: 18 de octubre de 2026. Estado final: ejecución directa verificada; pendiente de Docker resuelto. Se conservó el proyecto existente y se comparó con el video, las diapositivas y el instructivo. El código fuente de lib/ y test/ coincide con el repositorio público ya publicado; no fue necesario cambiarlo para completar las funciones obligatorias.
 
 ## Implementación
 
@@ -46,3 +46,19 @@ Las respuestas a los ejercicios y el contraste con los materiales están en `Act
 Se compiló además en debug para disponer del menú de práctica. «Invalidar token» seguido de Recargar produjo un 401 real: la aplicación volvió a pedir inicio de sesión, mostró el aviso de caducidad y dejó de mostrar los gastos. Evidencia: `sesion8-07-sesion-caducada.png`. Los tres favoritos anteriores se conservaron después de este cierre: `sesion8-08-favoritos-conservados.png`. El cierre por caducidad utiliza el mismo cerrarSesion() que la acción manual; el borrado de la caja y la lista también está cubierto por la prueba oficial del Paso 8.
 
 Tras reiniciar después del cierre por 401, Gastos volvió a mostrar únicamente el botón Iniciar sesión, sin restaurar la cuenta anterior.
+
+## Cierre de la ejecución directa — 18 de octubre de 2026
+
+**Pendiente de Docker resuelto.** Se reconstruyeron las imágenes backend y migrate desde el código de esta práctica, sin eliminar volúmenes. El backend y PostgreSQL respondieron correctamente. La aplicación debug se ejecutó en Brave desde localhost:8186 con API_BASE_URL=http://localhost:8000; el formulario de login mostró esa dirección.
+
+| Comprobación final | Resultado | Evidencia |
+| --- | --- | --- |
+| Preflight directo de PATCH y DELETE | Ambos responden 200, origen localhost:8186 y métodos GET, POST, PATCH, DELETE, PUT, OPTIONS | Evidencias/sesion8-cors-directo-final.json |
+| Lectura e inicio de sesión directos | Cuenta local de prueba y su gasto inicial de 2.50 visibles | Evidencias/sesion8-09-conexion-directa.png |
+| Edición desde Brave | Monto cambiado de 2.50 a 3.50; el servidor devuelve el mismo gasto id 13 actualizado | Evidencias/sesion8-10-patch-directo.png; Evidencias/sesion8-patch-directo-verificado.json |
+| Confirmación de borrado | Muestra el nombre del gasto; se recibió confirmación expresa del estudiante antes de eliminarlo | Evidencias/sesion8-11-confirmacion-directa.png |
+| Eliminación desde Brave | Gasto temporal eliminado, lista en pantalla vacía y GET del id 13 devuelve 404; los datos anteriores del curso se conservaron | Evidencias/sesion8-12-delete-directo.png; Evidencias/sesion8-delete-directo-verificado.json |
+
+La verificación final ya no depende del intermediario del puerto 8002. Las referencias anteriores al CORS antiguo y al intermediario describen la comprobación inicial y se conservan como historial. Los pasos obligatorios de esta práctica quedan comprobados para el entorno Windows/Brave acordado; las opciones de cambio de contraseña y pruebas nativas Android siguen siendo opcionales y quedan fuera de esta comprobación web.
+
+No hubo cambios adicionales en lib/ ni test/: el problema era la imagen Docker instalada, no una nueva modificación del código. Se conservan las 15 pruebas oficiales y las 17 comprobaciones de API documentadas, y se añadieron estas comprobaciones directas para resolver la limitación pendiente.
