@@ -1,0 +1,74 @@
+{
+  "fecha": "2026-10-18",
+  "backend": "API real y PostgreSQL Docker",
+  "resultados": [
+    {
+      "comprobacion": "Cuenta aislada de integracion creada",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Login real con formulario",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Credenciales incorrectas devuelven 401",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Correo duplicado devuelve 400 con detalle",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Login JSON incorrecto devuelve 422",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Categorias reales del backend",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "POST de gasto real devuelve 201",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "PATCH parcial real devuelve monto actualizado",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "GET devuelve el gasto creado y editado por la API",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Limite por categoria devuelve 400 con detalle",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Segunda cuenta independiente creada",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Segunda cuenta no ve gastos de la primera",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Servidor impide modificar un gasto ajeno",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Token invalido devuelve 401 real",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "DELETE del gasto creado para esta verificacion devuelve 204",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Gasto ya eliminado devuelve 404",
+      "resultado": "aprobado"
+    },
+    {
+      "comprobacion": "Lista real queda vacia tras borrar solo el gasto de prueba",
+      "resultado": "aprobado"
+    }
+  ]
+}

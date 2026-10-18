@@ -38,3 +38,18 @@ La base inicia vacía: crear una cuenta local y gastos de prueba. Los datos y se
 
 **Estado:** las 15 pruebas oficiales de la sesión 8 pasaron. La comprobación manual completa contra Docker sigue pendiente por bloqueo de acceso al motor en el entorno usado. No se afirma que esa verificación esté completada.
 
+
+## Actividad de la sesión 8 y verificación actual
+
+- [Contraste del video y las diapositivas, respuestas y ejecución](Actividad%20y%20contraste%20-%20Sesion%208.md).
+- [Informe de resultados y límites de la comprobación](Estado%20y%20respuestas%20-%20Sesion%208.md).
+- [Resultados de integración con la API real y PostgreSQL](Evidencias/sesion8-validacion-api-real.json).
+- [Evidencias visuales](Evidencias).
+
+El 18 de octubre de 2026 aprobaron las 15 pruebas oficiales y 17 comprobaciones de integración con la API real; el analizador no encontró problemas y las versiones web release/debug compilaron. Brave verificó registro, creación y edición, límite de 500, restauración, respaldo sin conexión, recuperación, aviso de sesión caducada y favoritos conservados. El código de aplicación ya contenía los pasos obligatorios y se mantuvo intacto en esta revisión.
+
+### Si Docker conserva una imagen antigua
+
+El backend fuente ya permite CORS para GET, POST, PATCH, DELETE, PUT y OPTIONS desde localhost:8186. Si el contenedor instalado devuelve solo GET/POST en un preflight, reconstruirlo desde la carpeta del backend con `docker compose up --build -d`, sin eliminar los volúmenes.
+
+Durante esta verificación el entorno no tenía acceso al canal Docker para reconstruirlo. Se iniciaron los contenedores por Docker Desktop y se utilizó un intermediario local temporal (8002 → API real 8000) para comprobar los flujos en Brave. El informe distingue esta ejecución de la ruta directa habitual; el intermediario no forma parte de la aplicación ni es necesario con una imagen actualizada.
